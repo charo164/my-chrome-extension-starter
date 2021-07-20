@@ -1,0 +1,51 @@
+{
+  "name": "my_chrome_extension_starter",
+  "version": "1.0.0",
+  "description": "A simple way to start a chrome extension development with react and tailwindcss",
+  "watch": {
+    "copy-assets": "src/manifest.json"
+  },
+  "scripts": {
+    "start": "npm-run-all --parallel dev watch-copy-assets",
+    "dev": "parcel watch --no-hmr --no-source-maps --no-cache --no-content-hash src/*.ts src/scripts/*.ts src/*.html",
+    "copy-assets": "copyfiles -f src/icons/* src/manifest.json dist",
+    "watch-copy-assets": "npm-watch",
+    "prebuild": "rimraf ${npm_package_name}",
+    "build": "parcel build --dist-dir ${npm_package_name} --no-cache --no-source-maps --no-content-hash src/*.ts src/scripts/*.ts  src/*.html",
+    "postbuild": "copyfiles -f src/icons/* src/manifest.json  ${npm_package_name}",
+    "prebeta": "rimraf ${npm_package_name}-beta",
+    "beta": "parcel build --dist-dir ${npm_package_name}-beta --no-source-maps --no-cache --no-content-hash src/*.ts src/scripts/*.ts  src/*.html",
+    "postbeta": "copyfiles -f src/icons/* src/manifest.json  ${npm_package_name}-beta"
+  },
+  "keywords": [],
+  "author": {
+    "name": "charo164",
+    "url": "https://github.com/charo164"
+  },
+  "homepage": "https://github.com/charo164/my-chrome-extension-starter/#readme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charo164/my-chrome-extension-starter/issues"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "2.2.4"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.147",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "autoprefixer": "^10.3.1",
+    "copyfiles": "^2.4.1",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.10.0",
+    "parcel": "^2.0.0-beta.2",
+    "parcel-plugin-purgecss": "^2.0.0",
+    "postcss": "8.3.5",
+    "typescript": "^4.3.5"
+  }
+}
+ 

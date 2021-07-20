@@ -1,0 +1,36 @@
+{
+  "name": "my-extension-name",
+  "description": "A simple chrome extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "css": [],
+      "js": ["scripts/contentScript.js"]
+    }
+  ],
+  "permissions": [],
+  "host_permissions": [],
+  "action": {
+    "default_popup": "/popup.html",
+    "default_icon": {
+      "16": "/icon-16.png",
+      "32": "/icon-32.png",
+      "48": "/icon-48.png",
+      "128": "/icon-128.png"
+    }
+  },
+
+  "icons": {
+    "16": "/icon-16.png",
+    "32": "/icon-32.png",
+    "48": "/icon-48.png",
+    "128": "/icon-128.png"
+  },
+  "options_page": "/options.html"
+}
